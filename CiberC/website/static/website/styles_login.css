@@ -1,0 +1,66 @@
+/* Container*/
+div.container{
+    background: white;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    padding: 16px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+/* Bordered form */
+form {
+	width: 631.2px;
+
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label{
+    font-family: Arial;
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+p{
+    font-family: Arial;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+/* Set a style for all buttons */
+button {
+	color: #fff;
+    background-color: #007bff;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Center the avatar image inside this container */
+.Image_container {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.logo {
+    width: 40%;
+}
+

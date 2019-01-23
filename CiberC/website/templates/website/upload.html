@@ -1,0 +1,31 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Upload{% endblock %}
+
+{% block body %}
+
+    {%  load staticfiles %}
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_upload.css' %}"/>
+
+    <body>
+            <div class="container_login">
+                <form action="/CiberC/uploadingFile/" class="container" enctype="multipart/form-data" method="post" >
+                    {%  csrf_token %}
+
+                    <div class="Upload_container">
+                        <h3>Please upload the <strong>isistopology.txt</strong> file into the server:</h3><br>
+                        <input type="file" name="file"><br>
+                        {%  if error_message %}
+                            <p class="error_message">{{ error_message }}</p>
+                        {%  elif success_message %}
+                             <p class="success_message">{{ success_message }}</p>
+                        {% endif %}
+
+                        <button type="submit" class="upload" onclick="Upload(this.form)">Upload</button>
+                    </div>
+                </form>
+            </div>
+    </body>
+
+
+{% endblock %}

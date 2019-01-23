@@ -1,0 +1,23 @@
+<!-- main tab -->
+{% extends 'website/base.html' %}
+{%  load staticfiles %}
+
+{% block body %}
+
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_login.css' %}"/>
+
+    <div class="container">
+        <div class="Image_container">
+            <img src="{% static 'website/images/cibercLogo.png' %}" alt="Avatar" class="logo">
+        </div>
+
+        <ul>
+            <li><a href="/CiberC/uploadFile">Upload File</a><br></li>
+            <li><a href="/CiberC/downloadFile">Download File</a><br></li>
+            <li><a href="/CiberC/view">Graph network</a><br></li>
+            <li><a href="/CiberC/modules">Modules</a><br></li>
+        </ul>
+
+    </div>
+
+{% endblock %}

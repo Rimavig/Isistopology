@@ -1,0 +1,89 @@
+/* Container*/
+div.container_login{
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+div.container_module{
+    background: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -20%;
+    transform: translate(-50%, -50%)
+}
+div.container_graf{
+    background: white;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+
+}
+
+/* Bordered form */
+form.container {
+	width: 631.2px;
+    border: 3px solid #f1f1f1;
+}
+form.container1 {
+	width: 950px;
+    border: 3px solid #f1f1f1;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label{
+    font-family: Arial;
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+p.error_message{
+    font-family: Arial;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+p.success_message{
+    font-family: Arial;
+    color: #008000;
+    font-size: 12px;
+}
+
+/* Set a style for all buttons */
+button.upload {
+	color: #fff;
+    background-color: #007bff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Add padding to containers */
+.Upload_container {
+    padding: 10px;
+}
+.Upload_module {
+    padding: 10px;
+    text-align: center;
+}

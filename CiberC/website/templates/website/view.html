@@ -1,0 +1,44 @@
+{% extends 'website/base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block body %}
+
+    {%  load staticfiles %}
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_upload.css' %}"/>
+            <div class="container_graf">
+                <form action="/CiberC/viewGraph/" class="container" enctype="multipart/form-data" method="post" >
+                    {%  csrf_token %}
+
+                    <div class="Upload_container">
+                        <h3>Text below will show you if there is data of the nodes in the Database:</h3>
+                        {%  if error_message %}
+                            <p class="error_message">{{ error_message }}</p>
+                        {%  elif success_message %}
+                            <p class="success_message">{{ success_message }}</p>
+                            <input type="text" placeholder="Enter name or ip address" name="node" required>
+                            <div>
+	                            <div >
+                                <h4>Node Levels</h4>
+                                <input type="radio" name="level" value="1" checked>2 Level<br>
+                                <input type="radio" name="level" value="2">3 Levels<br>
+                                <input type="radio" name="level" value="3">4 Levels<br>
+                                <input type="radio" name="level" value="4">All levels<br>
+                                </div>
+                                <div >
+                                <h4>Node Links</h4>
+                                <input type="radio" name="link" value="1" checked>1 Link<br>
+                                <input type="radio" name="link" value="2">All Links<br>
+                                </div>
+                                <div >
+                                <h4>Red</h4>
+                                <input type="radio" name="red" value="1" checked>Static<br>
+                                <input type="radio" name="red" value="2">Dinamic<br>
+                                </div>
+                            </div>
+                            <button type="submit" class="upload" onclick="Generate(this.form)">Generate</button>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+{% endblock %}

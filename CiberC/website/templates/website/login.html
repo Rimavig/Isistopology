@@ -1,0 +1,35 @@
+<!-- tab for login -->
+
+<!-- Loads the path to your static files -->
+{%  load staticfiles %}
+
+<head>
+    <title>Login</title>
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_login.css' %}"/>
+</head>
+
+<body>
+		<div class="container">
+
+            <form action="/CiberC/login_validation/" method="post" >
+                {%  csrf_token %}
+                <div class="Image_container">
+                    <img src="{% static 'website/images/cibercLogo.png' %}" alt="Avatar" class="logo">
+                </div>
+
+                <label for="username"><b>Username or Email</b></label>
+                <input type="text" placeholder="Enter Username or Email" name="username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                {%  if error_message %}
+                    <p>{{ error_message }}</p>
+                {% endif %}
+                <button type="submit" onclick="Login(this.form)">Login</button>
+            </form>
+            <form action="/CiberC/registration/" method="post">
+                {%  csrf_token %}
+                <button type="submit" onclick="Register(this.form)">Register</button>
+            </form>
+
+		</div>
+</body>

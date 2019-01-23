@@ -1,0 +1,107 @@
+<!-- Create the dinamic graph-->
+{% extends 'website/base.html' %}
+{%  load staticfiles %}
+
+{% block title %}Graph{% endblock %}
+{% block head %}
+    <!-- style-->
+    <style type="text/css">
+    body {
+      font: 10pt sans;
+    }
+    #mynetwork {
+      float:left;
+      width: 800px;
+      height:1000px;
+      margin:5px;
+      border: 1px solid lightgray;
+    }
+    #config {
+      float:left;
+      width: 100px;
+      height: 600px;
+    }
+  </style>
+    <!-- library Vis-->
+    <script type="text/javascript" src="{% static 'website/dist/vis.js' %}"></script>
+    <link href="{% static 'website/dist/vis.css' %}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        var nodes = null;
+        var edges = null;
+        var network = null;
+        <!-- function to Create the dinamic graph-->
+        function draw() {
+
+            // create some nodes
+{%  if nodos %}
+var nodes = [{{ nodos|safe}}];
+{% endif %}
+
+{%  if edge %}
+var edges = [{{ edge|safe}}];
+{% endif %}
+
+// randomly create some nodes and edges
+      var data = {
+                nodes: nodes,
+                edges: edges
+            };
+
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      // create options
+      var options = {
+        edges: {arrows:{to:{enable:true}}},
+          // Color of the nodes
+          groups:{
+                    "P":{
+                        color:{background:'red',border:'maroon'},
+                        },
+                    "E":{color:{background:'coral',border:'black'},
+                        },
+                    "R":{color:{background:'green',border:'darkGreen'},
+                        },
+                    "B":{color:{background:'gold',border:'brown'},
+                        },
+                    "C":{color:{background:'black',border:'red'},
+                        }
+
+                },
+	    physics: {stabilization: false},
+        // create the options to edit the graph
+          configure: {
+          filter:function (option, path) {
+            if (path.indexOf('physics') !== -1 || option === 'width' || option === 'shape') {
+              return true;
+            }
+            if (path.indexOf('manipulation') !== -1) {
+              return true;
+            }
+            if (path.indexOf('font') !== -1 || option === 'font') {
+              return true;
+            }
+          if (path.indexOf('smooth') !== -1 || option === 'smooth') {
+              return true;
+            }
+            return false;
+          },
+          container: document.getElementById('config')
+
+	}
+
+
+      };
+      network = new vis.Network(container, data, options);
+    }
+  </script>
+
+{% endblock %}
+{% block body1 %}
+<body onload="draw();">
+{% endblock %}
+{% block body %}
+<div id="mynetwork"></div>
+<div id="config"></div>
+<p id="selection"></p>
+{% endblock %}

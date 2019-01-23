@@ -1,0 +1,30 @@
+<!-- Loads the path to your static files -->
+
+{%  load staticfiles %}
+
+<head>
+    <title>Registration</title>
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_login.css' %}"/>
+</head>
+
+<body>
+		<div class="container">
+
+            <form action="/CiberC/register/" method="post" >
+                {%  csrf_token %}
+                <div class="Image_container">
+                    <a href="/CiberC/"><img src="{% static 'website/images/cibercLogo.png' %}" alt="Avatar" class="logo"></a>
+                </div>
+
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <label for="username"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+
+                <button type="submit" onclick="Submit(this.form)">Submit</button>
+            </form>
+
+		</div>
+</body>

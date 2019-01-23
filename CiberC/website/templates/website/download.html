@@ -1,0 +1,33 @@
+<!--/CiberC/downloadingFile/
+tab to download the file of affected nodes-->
+{% extends 'website/base.html' %}
+
+{% block title %}Download{% endblock %}
+
+{% block body %}
+
+    {%  load staticfiles %}
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_upload.css' %}"/>
+
+    <body>
+            <div class="container_login">
+                <form action="/CiberC/downloadingFile/" class="container" enctype="multipart/form-data" method="post" >
+                    {%  csrf_token %}
+
+                    <div class="Upload_container">
+                        <h3>Text below will show you if there is data of the nodes in the Database:</h3>
+                        {%  if error_message %}
+                            <p class="error_message">{{ error_message }}</p>
+                        {%  elif success_message %}
+                            <p class="success_message">{{ success_message }}</p></div>
+                            <input type="text" placeholder="Enter name or ip address" name="node" required>
+                            <button type="submit" class="upload" onclick="Generate(this.form)">Generate</button>
+
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+    </body>
+
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!--/CiberC/convertModules/
+tab to convert cisco commands ios to xs-->
+{% extends 'website/base.html' %}
+
+{% block title %}Modules{% endblock %}
+
+{% block body %}
+    {%  load staticfiles %}
+    <link rel = "stylesheet" type="text/css" href = "{% static 'website/styles_upload.css' %}"/>
+            <div class="container_module" >
+                <form action="/CiberC/convertModules/" class="container1" enctype="multipart/form-data" method="post" >
+                    {%  csrf_token %}
+
+                    <div class="Upload_module" >
+                        <h3 >Please copy the Cisco IOS commands on the left that you want to convert</h3><br>
+                        <div>
+                            {%  if ios %}
+                                <textarea name="commands" rows="20" cols="50" required>{{ ios }}</textarea>
+                            {%  else %}
+                                <textarea name="commands" rows="20" cols="50" required></textarea>
+                            {% endif %}
+
+                            {%  if iosXR %}
+                                <textarea name="text" rows="20" cols="50" readonly>{{ iosXR }}</textarea>
+                            {%  else %}
+                                <textarea name="text" rows="20" cols="50" readonly></textarea>
+                            {% endif %}
+
+                        </div>
+
+                        <select name="option" style="text-align: center">
+                            <option>Vfis</option>
+                            <option>Xconnects</option>
+                            <option>Prefix-List</option>
+                        </select>
+
+                        <button type="submit" class="convert" onclick="Convert(this.form)" >Convert</button>
+                    </div>
+
+                </form>
+            </div>
+
+{% endblock %}
